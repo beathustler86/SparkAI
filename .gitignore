@@ -1,0 +1,86 @@
+########################################
+# PYTHON / VIRTUAL ENVIRONMENTS (NEVER COMMIT)
+########################################
+venv/
+.venv/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+########################################
+# CACHE FILES (NEVER COMMIT)
+########################################
+Caches/
+**/cache/
+**/Cache/
+**/*.cache
+**/*.tmp
+Temp/
+
+########################################
+# LOG FILES (NEVER COMMIT)
+########################################
+logs/
+**/*.log
+**/*.log.*
+**/logs/
+
+########################################
+# TELEMETRY (NEVER COMMIT)
+########################################
+Telemetry/
+**/telemetry/
+**/*.telemetry
+**/*.metrics
+**/*.trace
+
+########################################
+# OS / EDITOR NOISE
+########################################
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+########################################
+# 🔒 GUARDED / CRITICAL STRUCTURE (ALWAYS KEEP)
+# Explicitly unignored so they NEVER disappear
+########################################
+!venv_requirements/**
+!venv_requirements/
+!Venv_PIP_torch_Installer/
+!Venv_PIP_torch_Installer/**
+
+!install_comfyui_venv.bat
+!workflows/
+!Env_Variables/
+!GUI_Launcher/
+!Utils/
+!Fresh_Install/
+!Launch_ComfyUI_GUI.bat
+!venv_bonus_packages/
+!comfyui_cache_manager.py
+!ReadMe.md
+!ChromeProfile_ComfyUI/
+!optional_packages.txt
+!env_database.txt
+!launch.bat
+!pip_check.txt
+!Cuda_Cache/
+!Pytorch_Cache/
+!Pytorch_Wheels_Cache/
+!Transformers_Cache/
+!comfyui_launcher_gui.py
+!launcher_config.json
+!launch_last.bat
+!pip_freeze.txt
+!requirements.txt
+!requirements_lock.txt
+!STACK_LOCKDOWN.md
+
+########################################
+# KEEP EMPTY FOLDERS
+########################################
+!.keep
+# gitignore

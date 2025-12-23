@@ -1,0 +1,235 @@
+{
+  "1": {
+    "class_type": "DiffusersLoader",
+    "inputs": {
+      "model_path": "text_to_image/dreamshaper-xl-v2-turbo"
+    }
+  },
+  "2": {
+    "class_type": "DiffusersLoader",
+    "inputs": {
+      "model_path": "text_to_image/stable-diffusion-xl-refiner-1.0"
+    }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "1",
+        "CLIP"
+      ],
+      "text": "masterpiece, photoreal, natural light, high detail"
+    }
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "1",
+        "CLIP"
+      ],
+      "text": "lowres, blurry, jpeg, watermark, deformed, bad anatomy"
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        "CLIP"
+      ],
+      "text": "masterpiece, photoreal, natural light, high detail"
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        "CLIP"
+      ],
+      "text": "lowres, blurry, jpeg, watermark, deformed, bad anatomy"
+    }
+  },
+  "7": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    }
+  },
+  "8": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "1",
+        "MODEL"
+      ],
+      "seed": 0,
+      "steps": 22,
+      "cfg": 6.5,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "positive": [
+        "3",
+        "CONDITIONING"
+      ],
+      "negative": [
+        "4",
+        "CONDITIONING"
+      ],
+      "latent_image": [
+        "7",
+        "LATENT"
+      ],
+      "denoise": 1.0
+    }
+  },
+  "9": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "2",
+        "MODEL"
+      ],
+      "seed": 0,
+      "steps": 10,
+      "cfg": 5.0,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "positive": [
+        "5",
+        "CONDITIONING"
+      ],
+      "negative": [
+        "6",
+        "CONDITIONING"
+      ],
+      "latent_image": [
+        "8",
+        "LATENT"
+      ],
+      "denoise": 0.2
+    }
+  },
+  "10": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "vae": [
+        "1",
+        "VAE"
+      ],
+      "samples": [
+        "9",
+        "LATENT"
+      ]
+    }
+  },
+  "11": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "10",
+        "IMAGE"
+      ],
+      "filename_prefix": "dsxl_t2i"
+    }
+  },
+  "12": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "drop_image_here.png"
+    }
+  },
+  "13": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "vae": [
+        "1",
+        "VAE"
+      ],
+      "pixels": [
+        "12",
+        "IMAGE"
+      ]
+    }
+  },
+  "14": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "1",
+        "MODEL"
+      ],
+      "seed": 0,
+      "steps": 16,
+      "cfg": 6.0,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "positive": [
+        "3",
+        "CONDITIONING"
+      ],
+      "negative": [
+        "4",
+        "CONDITIONING"
+      ],
+      "latent_image": [
+        "13",
+        "LATENT"
+      ],
+      "denoise": 0.28
+    }
+  },
+  "15": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "2",
+        "MODEL"
+      ],
+      "seed": 0,
+      "steps": 8,
+      "cfg": 5.0,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "positive": [
+        "5",
+        "CONDITIONING"
+      ],
+      "negative": [
+        "6",
+        "CONDITIONING"
+      ],
+      "latent_image": [
+        "14",
+        "LATENT"
+      ],
+      "denoise": 0.18
+    }
+  },
+  "16": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "vae": [
+        "1",
+        "VAE"
+      ],
+      "samples": [
+        "15",
+        "LATENT"
+      ]
+    }
+  },
+  "17": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "16",
+        "IMAGE"
+      ],
+      "filename_prefix": "dsxl_i2i"
+    }
+  }
+}

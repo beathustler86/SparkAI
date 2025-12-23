@@ -1,0 +1,117 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:Comfy_Cache/venv_requirements/requirements.txt
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+# ============================================================
+# ComfyUI Requirements (Windows / Python 3.10 / CUDA cu128)
+# Data-only file — NO index flags, NO commands
+# ============================================================
+<<<<<<< HEAD
+=======
+
+# --- ComfyUI core ---
+comfyui_frontend_package==1.33.10
+comfyui_workflow_templates==0.7.25
+comfyui-embedded-docs==0.3.1
+comfyui-manager==4.0.3b4
+
+# --- PyTorch stack (CUDA via --extra-index-url at install time) ---
+torch==2.7.1+cu128
+torchvision==0.22.1+cu128
+torchaudio==2.7.1+cu128
+torchsde==0.2.6
+
+# --- Core ML / HF ---
+diffusers==0.36.0
+accelerate==0.27.2
+huggingface-hub==0.36.0
+transformers==4.57.3
+tokenizers==0.22.1
+sentencepiece==0.2.1
+safetensors==0.7.0
+
+# --- Hydra stack (ANTLR intentionally NOT pinned) ---
+hydra-core==1.3.2
+omegaconf==2.3.0
+
+# --- Vision / image ---
+numpy==2.2.6
+opencv-python==4.12.0.88
+opencv-python-headless==4.12.0.88
+pillow==12.0.0
+scikit-image==0.25.2
+scipy==1.15.3
+kornia==0.8.2
+spandrel==0.4.1
+
+# --- Runtime / utils ---
+einops==0.8.1
+psutil==7.1.3
+tqdm==4.67.1
+requests==2.32.5
+PyYAML==6.0.3
+yarl==1.22.0
+aiohttp==3.13.2
+urllib3==2.6.0
+
+# --- Optional / known-good ---
+=======
+--index-url https://pypi.org/simple
+--extra-index-url https://download.pytorch.org/whl/cu128
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+
+# --- ComfyUI core ---
+comfyui_frontend_package==1.33.10
+comfyui_workflow_templates==0.7.25
+comfyui-embedded-docs==0.3.1
+comfyui-manager==4.0.3b4
+
+# --- PyTorch stack (CUDA via --extra-index-url at install time) ---
+torch==2.7.1+cu128
+torchvision==0.22.1+cu128
+torchaudio==2.7.1+cu128
+torchsde==0.2.6
+
+# --- Core ML / HF ---
+diffusers==0.36.0
+accelerate==0.27.2
+huggingface-hub==0.36.0
+transformers==4.57.3
+tokenizers==0.22.1
+sentencepiece==0.2.1
+safetensors==0.7.0
+
+# --- Hydra stack (ANTLR intentionally NOT pinned) ---
+hydra-core==1.3.2
+omegaconf==2.3.0
+
+# --- Vision / image ---
+numpy==2.2.6
+opencv-python==4.12.0.88
+opencv-python-headless==4.12.0.88
+pillow==12.0.0
+scikit-image==0.25.2
+scipy==1.15.3
+kornia==0.8.2
+spandrel==0.4.1
+
+<<<<<<< HEAD
+# --- Runtime / utils ---
+einops==0.8.1
+psutil==7.1.3
+tqdm==4.67.1
+requests==2.32.5
+PyYAML==6.0.3
+yarl==1.22.0
+aiohttp==3.13.2
+urllib3==2.6.0
+
+# --- Optional / known-good ---
+=======
+# === VERIFIED ADDITIONS (MATCH YOUR WORKING STACK) ===
+diffusers==0.36.0
+accelerate==1.12.0
+>>>>>>> 1c02aea2b3a3a719cd884bd4663d69e4a4039130:venv_requirements/requirements.txt
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+xformers==0.0.33.post2
+triton-windows==3.5.1.post22

@@ -1,0 +1,110 @@
+{
+  "comfy_root": "N:\\ComfyUI",
+  "port": 8188,
+  "chrome_exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "chrome_profile_dir": "D:\\COMFY_CACHE\\utils\\ChromeProfile_ComfyUI",
+  "cache_temp": "D:\\COMFY_CACHE\\temp",
+  "cache_torch_home": "D:\\COMFY_CACHE\\torch",
+  "lock_dir": "D:\\COMFY_CACHE\\venv_requirements",
+  "installer_bat": "D:\\COMFY_CACHE\\new_install\\launch.bat",
+<<<<<<< HEAD
+  "mode": "safe",
+=======
+<<<<<<< HEAD:Comfy_Cache/GUI_Launcher/launcher_config.json
+  "mode": "safe",
+  "env": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "PYTORCH_CUDA_ALLOC_CONF": "",
+    "NUM_WORKERS": "",
+    "TORCH_CUDNN_BENCHMARK": false,
+    "TORCH_DEVICE": "",
+    "USE_MIXED_PRECISION": false,
+    "ENABLE_OPTIMIZER_STATE_SHARING": false,
+    "USE_FUSED_OPTIMIZER": false,
+    "USE_BFLOAT16": false,
+    "USE_FP16": false,
+    "DO_NOT_TRACK": false,
+    "PIP_CHECK": false,
+    "DEBUG_MODE": false,
+    "ENABLE_PROFILER": false,
+=======
+  "mode": "standard",
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+  "env": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "PYTORCH_CUDA_ALLOC_CONF": "",
+    "NUM_WORKERS": "",
+    "TORCH_CUDNN_BENCHMARK": false,
+    "TORCH_DEVICE": "",
+    "USE_MIXED_PRECISION": false,
+    "ENABLE_OPTIMIZER_STATE_SHARING": false,
+    "USE_FUSED_OPTIMIZER": false,
+    "USE_BFLOAT16": false,
+    "USE_FP16": false,
+    "DO_NOT_TRACK": false,
+<<<<<<< HEAD
+    "PIP_CHECK": false,
+    "DEBUG_MODE": false,
+    "ENABLE_PROFILER": false,
+=======
+    "PIP_CHECK": true,
+    "DEBUG_MODE": true,
+    "ENABLE_PROFILER": true,
+>>>>>>> 1c02aea2b3a3a719cd884bd4663d69e4a4039130:GUI_Launcher/launcher_config.json
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+    "PROFILE_INTERVAL": "",
+    "LOG_LEVEL": "",
+    "SYNCHRONOUS_GPU": false,
+    "TRANSFORMERS_CACHE": "D:\\COMFY_CACHE\\transformers_cache",
+    "HF_HOME": "",
+    "MODEL_TYPE": "",
+    "TRAINING_BATCH_SIZE": "",
+    "MAX_TRAINING_STEPS": "",
+    "ENABLE_GRADIENT_CHECKPOINTING": false,
+<<<<<<< HEAD
+    "USE_XFORMERS": false,
+=======
+<<<<<<< HEAD:Comfy_Cache/GUI_Launcher/launcher_config.json
+    "USE_XFORMERS": false,
+=======
+    "USE_XFORMERS": true,
+>>>>>>> 1c02aea2b3a3a719cd884bd4663d69e4a4039130:GUI_Launcher/launcher_config.json
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+    "CUSTOM_VENV_PATH": "",
+    "TORCH_HOME": "",
+    "USE_TRITON": false,
+    "CUDA_MEMORY_FORMAT": "",
+    "CUDA_LAUNCH_BLOCKING": false,
+    "CUDA_DEVICE_MAX_CONNECTIONS": "",
+    "PYTORCH_NO_CUDA_MEMORY_CACHING": false,
+<<<<<<< HEAD
+    "PYTORCH_NVML_BASED_CUDA_CHECK": false,
+=======
+<<<<<<< HEAD:Comfy_Cache/GUI_Launcher/launcher_config.json
+    "PYTORCH_NVML_BASED_CUDA_CHECK": false,
+=======
+    "PYTORCH_NVML_BASED_CUDA_CHECK": true,
+>>>>>>> 1c02aea2b3a3a719cd884bd4663d69e4a4039130:GUI_Launcher/launcher_config.json
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+    "CACHE_MODEL_PARAMS": false,
+    "CUSTOM_PIPELINE": "",
+    "HF_HUB_CACHE": "",
+    "HF_XET_CACHE": "",
+    "HF_ASSETS_CACHE": "",
+    "HF_DATASETS_CACHE": "",
+    "CUDA_CACHE_DISABLE": false,
+    "CUDA_CACHE_PATH": "",
+    "CUDA_CACHE_MAXSIZE": "",
+    "CUDA_FORCE_PTX_JIT": false,
+    "CUDA_DISABLE_PTX_JIT": false,
+    "DIFFUSERS_DISABLE_FP16": false,
+    "NO_NORMALIZE_INPUTS": false,
+    "USE_ACCURATE_ATTENTION": false,
+    "USE_COMPRESSION": false,
+    "GENERATE_TRAINING_DATA": false,
+    "TEXT_EMBEDDING_MODE": "",
+    "TORCH_ALLOW_TF32_CUBLAS_OVERRIDE": false,
+    "TORCH_DTYPE": ""
+  },
+  "custom_venv_locked": false
+}

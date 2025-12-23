@@ -1,0 +1,145 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:Comfy_Cache/venv_requirements/requirements_lock.txt
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+# ============================================================
+# ComfyUI – Locked Requirements (Python 3.10 / CUDA cu128)
+# Data-only file (NO commands, NO index flags)
+# ============================================================
+
+
+# ------------------------------------------------------------
+# Core ComfyUI packages
+# ------------------------------------------------------------
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 1c02aea2b3a3a719cd884bd4663d69e4a4039130:venv_requirements/requirements_lock.txt
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+comfyui_frontend_package==1.33.10
+comfyui_workflow_templates==0.7.25
+comfyui-embedded-docs==0.3.1
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:Comfy_Cache/venv_requirements/requirements_lock.txt
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+
+# ------------------------------------------------------------
+# PyTorch stack (CUDA handled via --extra-index-url in installer)
+# ------------------------------------------------------------
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 1c02aea2b3a3a719cd884bd4663d69e4a4039130:venv_requirements/requirements_lock.txt
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+torch==2.9.1+cu128
+torchvision
+torchaudio
+torchsde
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:Comfy_Cache/venv_requirements/requirements_lock.txt
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+
+# ------------------------------------------------------------
+# Core ML / runtime dependencies
+# ------------------------------------------------------------
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 1c02aea2b3a3a719cd884bd4663d69e4a4039130:venv_requirements/requirements_lock.txt
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+numpy>=1.25.0
+einops
+transformers==4.57.3
+tokenizers==0.22.1
+sentencepiece==0.2.1
+safetensors==0.7.0
+<<<<<<< HEAD
+
+aiohttp>=3.11.8
+yarl>=1.18.0
+PyYAML
+=======
+<<<<<<< HEAD:Comfy_Cache/venv_requirements/requirements_lock.txt
+
+aiohttp>=3.11.8
+yarl>=1.18.0
+PyYAML
+=======
+aiohttp>=3.11.8
+yarl>=1.18.0
+pyyaml
+>>>>>>> 1c02aea2b3a3a719cd884bd4663d69e4a4039130:venv_requirements/requirements_lock.txt
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+Pillow
+scipy
+tqdm
+psutil
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:Comfy_Cache/venv_requirements/requirements_lock.txt
+av>=14.2.0
+
+
+# ------------------------------------------------------------
+# Database / migration
+# ------------------------------------------------------------
+alembic
+SQLAlchemy
+
+
+# ------------------------------------------------------------
+# Optional / non-essential dependencies
+# ------------------------------------------------------------
+kornia>=0.7.1
+spandrel
+
+pydantic~=2.0
+pydantic-settings~=2.0
+
+
+# ------------------------------------------------------------
+# VERIFIED LOCKS (MATCHED TO KNOWN-GOOD RUNTIME)
+# ------------------------------------------------------------
+diffusers==0.36.0
+accelerate==0.27.2
+=======
+alembic
+SQLAlchemy
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+av>=14.2.0
+
+
+# ------------------------------------------------------------
+# Database / migration
+# ------------------------------------------------------------
+alembic
+SQLAlchemy
+
+
+# ------------------------------------------------------------
+# Optional / non-essential dependencies
+# ------------------------------------------------------------
+kornia>=0.7.1
+spandrel
+
+pydantic~=2.0
+pydantic-settings~=2.0
+
+
+# ------------------------------------------------------------
+# VERIFIED LOCKS (MATCHED TO KNOWN-GOOD RUNTIME)
+# ------------------------------------------------------------
+diffusers==0.36.0
+<<<<<<< HEAD
+accelerate==0.27.2
+=======
+accelerate==1.12.0
+>>>>>>> 1c02aea2b3a3a719cd884bd4663d69e4a4039130:venv_requirements/requirements_lock.txt
+>>>>>>> c88464c01513b4b43bb77fe79772ec743d31a7e4
+huggingface-hub==0.36.0
+xformers==0.0.33.post2
+triton-windows==3.5.1.post22

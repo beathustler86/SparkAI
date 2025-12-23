@@ -1,0 +1,222 @@
+# General Performance & GPU Handling
+CUDA_VISIBLE_DEVICES=0                  # Limit which GPU(s) to use (e.g., CUDA_VISIBLE_DEVICES=0 for first GPU)
+PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:256  # Control CUDA memory allocation to reduce fragmentation
+OMP_NUM_THREADS=4                       # Set number of OpenMP threads used for multi-threaded CPU operations
+CUDA_LAUNCH_BLOCKING=1                  # Synchronous CUDA execution for debugging
+TORCH_HOME=/path/to/cache               # Path for storing models and cache
+XFORMERS_DISABLE=1                      # Disable xFormers for attention
+USE_BF16=1                              # Enable mixed precision training with bfloat16
+USE_FP16=1                              # Enable mixed precision training with FP16
+USE_FP32=1                              # Force usage of full precision (FP32)
+NUM_WORKERS=8                           # Set number of workers used in data loading
+TORCH_USE_CUDNN=enabled                 # Enable/disable cuDNN
+CUDA_MEMORY_FORMAT=channels_last        # Use specific memory format for tensors in CUDA
+CUDA_LAUNCH_BLOCKING=1                  # Useful for debugging (synchronous)
+
+# Model Features & Generative Model Settings
+TRANSFORMERS_CACHE=/path/to/cache       # Cache location for HuggingFace models
+HF_HOME=/path/to/datasets_and_models    # Location for HuggingFace datasets and models
+DIFFUSERS_DISABLE_FP16=1                # Disable FP16 in diffusers models
+USE_TRITON=1                            # Enable Triton for optimized kernel execution
+TORCH_DEVICE=cuda                       # Set default device (cuda or cpu)
+TRAINING_BATCH_SIZE=16                  # Set batch size for model training
+MAX_TRAINING_STEPS=5000                 # Max steps for training
+MODEL_TYPE=GPT                          # Set model type (e.g., GPT, BERT, Diffuser)
+TEXT_EMBEDDING_MODE=CLIP                # Choose embedding model (e.g., CLIP)
+NO_NORMALIZE_INPUTS=1                   # Disable normalization of inputs to the model
+USE_ACCURATE_ATTENTION=1                # Disable approximation in attention layers
+USE_COMPRESSION=1                       # Enable compression of model weights
+ENABLE_GRADIENT_CHECKPOINTING=1         # Enable gradient checkpointing for memory optimization
+GENERATE_TRAINING_DATA=1                # Automatically generate training data
+
+# Precision & Mixed Precision Settings
+USE_MIXED_PRECISION=1                   # Enable mixed precision training
+TORCH_DTYPE=float32                     # Force a specific data type for tensors (e.g., float32)
+ENABLE_OPTIMIZER_STATE_SHARING=1        # Share optimizer state across devices to save memory
+USE_BFLOAT16=1                          # Force the use of bfloat16 instead of FP16
+FLOATFP16=1                             # FP16 Attention ON
+
+# Debugging & Monitoring
+DEBUG_MODE=1                            # Enable detailed logging
+ENABLE_PROFILER=1                       # Enable PyTorch profiler for performance monitoring
+PROFILE_INTERVAL=100                    # Set the interval for profiling
+LOG_LEVEL=DEBUG                         # Set verbosity level of logs (e.g., DEBUG, INFO, ERROR)
+CACHE_MODEL_PARAMS=1                    # Cache model parameters to speed up loading
+SYNCHRONOUS_GPU=1                       # Set GPU to synchronous mode for debugging
+PRINT_TENSOR_SHAPES=1                   # Print tensor shapes during forward pass
+
+# Environment Settings for Custom Pipelines
+CUSTOM_PIPELINE=GPT-3                   # Define custom pipeline for training or generation
+DISABLE_DATA_AUGMENTATION=1             # Turn off data augmentation for faster training
+ENABLE_BATCH_NORM=1                     # Enable batch normalization layers during training
+
+# Health Checks & Customization
+PIP_CHECK=1                             # Check the health of installed Python packages
+CUSTOM_VENV_PATH=/path/to/venv          # Custom virtual environment path for specific installations
+
+# Specific Model/Training Settings
+USE_XFORMERS=0                          # Disable xFormers for attention (e.g., 1 to enable, 0 to disable)
+NUM_GRADE_ASAP_WORKERS=4                # Number of async data processing workers for grade-based models
+USE_FUSED_OPTIMIZER=1                   # Enable fused optimizer for faster training (e.g., on transformers)
+
+# Additional CUDA/Performance Tuning
+CUDA_VISIBLE_DEVICES=0                  # Set specific GPUs to be used by CUDA
+TORCH_CUDNN_BENCHMARK=1                  # Enable cuDNN benchmarking for performance optimization
+PYTORCH_ENABLE_MPS=1                    # Enable Metal Performance Shaders (for MacOS)
+
+# Miscellaneous
+ENABLE_BACKDOOR_LLM=0                   # (Not supported, intentionally excluded)
+
+Additional Variables You May Find Useful:
+
+OMP_NUM_THREADS: The number of threads to use for OpenMP operations (multi-threading).
+
+CUDA_VISIBLE_DEVICES: Specifies which GPUs to use.
+
+TORCH_HOME: Specifies the cache directory for PyTorch models.
+
+TRANSFORMERS_CACHE: Specifies the cache directory for Hugging Face models.
+
+TORCH_DEVICE: Forces usage of a specific device (cuda for GPU or cpu).
+
+These environment variables give you fine-grained control over the execution environment, whether you're debugging, optimizing performance, or controlling training parameters for models.
+
+PyTorch Official ENV Variables
+
+PYTORCH_CUDA_ALLOC_CONF        # Configure CUDA memory allocator
+PYTORCH_NO_CUDA_MEMORY_CACHING # Disable CUDA memory caching
+PYTORCH_NVML_BASED_CUDA_CHECK  # Use NVML to verify CUDA instead of runtime
+TORCH_CUDNN_V8_API_LRU_CACHE_LIMIT # cuDNNv8 API cache limit
+TORCH_CUDNN_V8_API_DISABLED    # Disable cuDNNv8 API
+TORCH_ALLOW_TF32_CUBLAS_OVERRIDE # Enable TF32 override
+TORCH_NCCL_USE_COMM_NONBLOCKING  # NCCL nonblocking error handling
+TORCH_NCCL_AVOID_RECORD_STREAMS  # NCCL record stream fallback
+(plus all standard CUDA variables above work with PyTorch)
+
+CUDA & NVIDIA (Official CUDA Runtime / Toolkit)
+
+CUDA_VISIBLE_DEVICES          # GPU device enumeration mask
+CUDA_DEVICE_ORDER            # Device enumeration order (FASTEST_FIRST / PCI_BUS_ID)
+CUDA_MANAGED_FORCE_DEVICE_ALLOC  # Force unified managed memory placement
+CUDA_LAUNCH_BLOCKING         # Sync CUDA calls (1 = synchronous)
+CUBLAS_WORKSPACE_CONFIG      # cuBLAS workspace configuration
+CUDNN_CONV_WSCAP_DBG         # cuDNN workspace config for debug
+CUBLASLT_WORKSPACE_SIZE      # cuBLASLT workspace size
+CUDNN_ERRATA_JSON_FILE       # Path to cuDNN errata JSON (debug)
+CUDA_CACHE_DISABLE           # Disable JIT PTX->CUBIN cache
+CUDA_CACHE_PATH              # Path to PTX JIT cache
+CUDA_CACHE_MAXSIZE           # Max size for PTX JIT cache
+CUDA_FORCE_PTX_JIT           # Force PTX JIT compilation
+CUDA_DISABLE_PTX_JIT         # Disable PTX JIT (use embedded binaries)
+CUDA_FORCE_PRELOAD_LIBRARIES # Preload NVVM/JIT libraries
+CUDA_DEVICE_MAX_CONNECTIONS  # Max concurrent compute/copy queues
+CUDA_DEVICE_MAX_COPY_CONNECTIONS # Max copy queue count
+CUDA_SCALE_LAUNCH_QUEUES     # Scale launch queue size
+CUDA_GRAPHS_USE_NODE_PRIORITY # CUDA graph execution priority
+CUDA_DEVICE_WAITS_ON_EXCEPTION # Block on device-side exceptions
+CUDA_MODULE_LOADING          # Module binary load mode (LAZY/EAGER)
+CUDA_MODULE_DATA_LOADING     # Data load mode (LAZY/EAGER)
+CUDA_BINARY_LOADER_THREAD_COUNT  # Number of loader threads
+CUDA_LOG_FILE                # Log file for CUDA errors
+
+Hugging Face Hub ENV Variables (official list)
+
+HF_HOME                      # Base Hugging Face cache & config directory
+HF_HUB_CACHE                # Hugging Face model/dataset repo cache
+HF_XET_CACHE                # Hugging Face Xet cache
+HF_ASSETS_CACHE             # Downstream assets cache
+HF_INFERENCE_ENDPOINT       # Alternate inference endpoint
+DO_NOT_TRACK                # Disable telemetry (affects HF + transformers ecosystem)
+
+Hugging Face Transformers Specific
+
+HF_ENABLE_PARALLEL_LOADING    # Enable parallel weights loading
+HF_PARALLEL_LOADING_WORKERS   # Number of workers for parallel loading
+
+vLLM Environment Variables
+
+VLLM_TARGET_DEVICE           # Default backend device (cuda, rocm, cpu)
+VLLM_MAIN_CUDA_VERSION       # Override main CUDA version vLLM uses
+MAX_JOBS                     # Parallel compilation jobs
+NVCC_THREADS                 # NVCC thread count for compilation
+VLLM_BUILD_WITH_NEURON       # Build with AWS Neuron support
+VLLM_USE_PRECOMPILED         # Use precompiled binaries
+VLLM_INSTALL_PUNICA_KERNELS  # Install Punica kernels
+
+Other Relevant (Often Used in Python AI Projects)
+
+TRANSFORMERS_CACHE           # Cache for huggingface models
+HF_DATASETS_CACHE           # HF dataset cache
+TORCH_DEVICE                # Force default device (cuda/cpu)
+TORCH_USE_CUDNN             # Control cuDNN usage
+OMP_NUM_THREADS             # OpenMP thread control
+MKL_NUM_THREADS             # MKL threading control
+OPENBLAS_NUM_THREADS        # OpenBLAS thread control
+NUMEXPR_NUM_THREADS         # NumExpr threads
+PYTHONHASHSEED              # Python hash seed for reproducibility
+TF_CPP_MIN_LOG_LEVEL        # TensorFlow C++ logging verbosity
+NCCL_DEBUG                  # NCCL debug level
+
+# TensorFlow
+TF_CPP_MIN_LOG_LEVEL          # TensorFlow C++ logging verbosity (0 = all, 3 = errors only)
+TF_FORCE_GPU_ALLOW_GROWTH     # Allow GPU memory growth
+TF_GPU_THREAD_MODE            # GPU thread mode (gpu_private, gpu_shared)
+TF_ENABLE_AUTO_MIXED_PRECISION # Enable automatic mixed precision (AMP)
+TF_XLA_FLAGS                  # Configure XLA compiler options
+TF_KERAS_USE_CUSTOM_OBJECTS   # Flag to use custom objects in Keras
+
+# General System Threading / MKL / OpenMP
+OMP_NUM_THREADS               # OpenMP thread control
+MKL_NUM_THREADS               # MKL threading control
+OPENBLAS_NUM_THREADS          # OpenBLAS thread control
+NUMEXPR_NUM_THREADS           # NumExpr threads
+PYTHONHASHSEED                # Python hash seed for reproducibility
+
+# Precision and Mixed Precision
+USE_MIXED_PRECISION           # Enable mixed precision training (1 for enabled)
+TORCH_DTYPE                   # Force a specific data type for tensors (e.g., float32)
+ENABLE_BFLOAT16               # Force the use of bfloat16 instead of FP16 (1 for enabled)
+ENABLE_FP16                   # Force the use of FP16 precision (1 for enabled)
+USE_BF16                      # Enable mixed precision training with bfloat16 (1 for enabled)
+
+# NCCL and Distributed Training
+NCCL_DEBUG                    # NCCL debug level
+NCCL_SOCKET_IFNAME            # Network interface for NCCL
+NCCL_IB_DISABLE               # Disable InfiniBand in NCCL
+NCCL_NTHREADS                 # NCCL number of threads for collective operations
+NCCL_TOPO_FILE                # Path to custom topology file for NCCL
+
+# General CUDA Optimization
+CUDA_MEMORY_FORMAT            # Use a specific memory format for tensors in CUDA (e.g., channels_last)
+CUDA_LAUNCH_BLOCKING          # Enable CUDA synchronous execution for debugging
+CUDA_DEVICE_WAITS_ON_EXCEPTION # Block on device-side exceptions
+CUDA_MODULE_LOADING           # Control CUDA module binary load mode (eager or lazy)
+CUDA_FORCE_PRELOAD_LIBRARIES  # Preload NVVM/JIT libraries
+CUDA_DEVICE_MAX_CONNECTIONS   # Max concurrent compute/copy queues
+
+# Distributed and Data Parallelism
+USE_ACCURATE_ATTENTION        # Disable approximation in attention layers (1 for accurate)
+USE_COMPRESSION               # Enable compression of model weights (1 for enabled)
+ENABLE_GRADIENT_CHECKPOINTING  # Enable gradient checkpointing for memory optimization
+NUM_WORKERS                   # Number of workers used for data loading
+
+# Miscellaneous
+DEBUG_MODE                    # Enable detailed logging (1 for enabled)
+ENABLE_PROFILER               # Enable PyTorch profiler to monitor performance (1 for enabled)
+PROFILE_INTERVAL              # Set the interval for profiling (e.g., PROFILE_INTERVAL=100)
+LOG_LEVEL                     # Set the verbosity level of logs (e.g., LOG_LEVEL=DEBUG)
+CACHE_MODEL_PARAMS            # Cache model parameters to speed up loading (1 for enabled)
+CUSTOM_VENV_PATH              # Custom virtual environment path for specific installations
+
+
+NOTES & BEST PRACTICES
+
+NVIDIA/CUDA variables control how GPU runtimes behave at driver and kernel level.
+NVIDIA Docs
+
+PyTorch variables control memory allocation, backend libraries, and parallelism.
+docs.pytorch.org
+
+Hugging Face hub/transformers variables control cache, telemetry, and model loading behavior
+
+
